@@ -25,7 +25,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install feedparser
+        pip install requests
     - name: Run Update Python Script
       run: |
         python main.py
@@ -34,7 +34,7 @@ jobs:
         git pull
         git add .
         git diff
-        git config --local user.email "ds4ouj@naver.com"
-        git config --local user.name "jojaeng2"
+        git config --local user.email "gusah009@naver.com"
+        git config --local user.name "정핸모"
         git commit -m "Updating Blog Posts"
         git push
