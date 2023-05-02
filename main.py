@@ -1,4 +1,5 @@
 import requests
+from urllib import parse
 
 URL = "https://gusah009.github.io"
 DATA = requests.get(URL + "/page-data/index/page-data.json").json()["result"]["data"]["allMarkdownRemark"]["edges"]
@@ -13,8 +14,7 @@ for idx, feed in enumerate(DATA):
     if idx > MAX_POST:
         break
     else:
-        print(feed)
-        feed_path = feed["node"]["fields"]["slug"]
+        feed_path = parse.quote(feed["node"]["fields"]["slug"])
         feed_date = feed["node"]["frontmatter"]["date"][:-1].replace(".", "-")
         feed_title = feed["node"]["frontmatter"]["title"]
         print(feed_path, feed_date, feed_title)
